@@ -100,3 +100,79 @@ const styles = StyleSheet.create({
 });
 
 export default StatCard;
+
+
+// // src/components/StatCard.js
+// import React from "react";
+// import { View, Text } from "react-native";
+// import { useTheme } from "../context/ThemeContext";
+
+// const StatCard = ({
+//   title,
+//   value,
+//   subtitle,
+//   color,
+//   progress,
+//   isSmall = false,
+//   isWhiteCard = false,
+// }) => {
+//   const { colors } = useTheme();
+//   const cardColor = color || colors.primary;
+
+//   return (
+//     <View
+//       className={`rounded-xl m-2 flex-1 ${isSmall ? "p-3 rounded-lg" : "p-4"}`}
+//       style={{ backgroundColor: cardColor }}
+//     >
+//       {/* Value */}
+//       <Text
+//         className={`${isSmall ? "text-lg" : "text-2xl"} font-poppinsSemiBold`}
+//         style={{ color: isWhiteCard ? colors.text : colors.white }}
+//       >
+//         {value}
+//       </Text>
+
+//       {/* Title */}
+//       <Text
+//         className={`${isSmall ? "text-xs" : "text-sm"} font-poppinsMedium`}
+//         style={{ color: isWhiteCard ? colors.text : colors.white }}
+//       >
+//         {title}
+//       </Text>
+
+//       {/* Subtitle */}
+//       {subtitle && (
+//         <Text
+//           className={`${isSmall ? "text-[8px] mt-1" : "text-[10px] mt-0.5"} font-poppinsThin`}
+//           style={
+//             isWhiteCard
+//               ? { color: colors.gray }
+//               : { color: colors.white, opacity: 0.8 }
+//           }
+//         >
+//           {subtitle}
+//         </Text>
+//       )}
+
+//       {/* Progress Bar */}
+//       {progress && (
+//         <View
+//           className={`overflow-hidden mt-2 rounded-md ${
+//             isSmall ? "h-1.5 mt-1.5" : "h-2"
+//           }`}
+//           style={isWhiteCard ? { backgroundColor: colors.lightGray } : {}}
+//         >
+//           <View
+//             className="h-full rounded"
+//             style={{
+//               width: `${progress}%`,
+//               backgroundColor: isWhiteCard ? colors.primary : colors.white,
+//             }}
+//           />
+//         </View>
+//       )}
+//     </View>
+//   );
+// };
+
+// export default StatCard;
