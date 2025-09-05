@@ -10,10 +10,13 @@ const Dashboard = () => {
     const { colors } = useTheme();
 
     return (
-        <View className="flex-1 bg-background">
+        <View className="flex-1" style={{ backgroundColor: colors.background }}>
             {/* Header - fixed alignment */}
-            <View className="flex-row justify-between items-center px-4 py-4">
-                <Text className="text-2xl text-primary font-poppins-black">
+            <View className="flex-row justify-between items-center px-4 py-4">               
+                <Text
+                  className="text-xl font-poppinsSemiBold"
+                  style={{ color: colors.text }}
+                >
                     Dashboard
                 </Text>
                 <View className="flex-row items-center gap-4">
@@ -26,7 +29,7 @@ const Dashboard = () => {
 
             <ScrollView showsVerticalScrollIndicator={false} className="flex-1 px-2">
                 {/* Stats Grid - 2x2 layout */}
-                <View className="mb-4">
+                <View className="mb-2">
                     {/* First Row */}
                     <View className="flex-row justify-between mb-4">
                         <View className="w-[48%]">
@@ -44,7 +47,7 @@ const Dashboard = () => {
                                 title="Total Orders"
                                 value="210"
                                 subtitle="0%"
-                                color={colors.card}
+                                color={colors.lightGray}
                                 progress={70}
                                 isWhiteCard={true}
                             />

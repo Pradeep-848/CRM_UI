@@ -74,19 +74,19 @@ const Settings = () => {
   ];
 
   return (
-    <SafeAreaView className="flex-1 bg-background">
+    <SafeAreaView className="flex-1"  style={{ backgroundColor: colors.background }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header */}
         <View className="px-5 pb-4 pt-5 border-b border-lightGray mb-2">
-          <Text className="text-xl font-poppins-semibold text-primary">Settings</Text>
+          <Text className="text-xl font-poppinsSemiBold" style={{ color: colors.text }}>Settings</Text>
         </View>
 
         {/* Settings Sections */}
         {settingsOptions.map((section, sectionIndex) => (
-          <View key={sectionIndex} className="mb-6">
-            <View className="flex-row items-center px-6 mb-2">
+          <View key={sectionIndex} className="mb-3">
+            <View className="flex-row items-center px-6 mb-2 mt-2">
               <Icon name={section.icon} size={18} color={colors.primary} style={{ marginRight: 12 }} />
-              <Text className="text-base font-poppins-medium text-primary">{section.title}</Text>
+              <Text className="text-base font-poppinsMedium" style={{ color: colors.text }}>{section.title}</Text>
             </View>
 
             <View className="mx-4 rounded-xl elevation-5" style={{ backgroundColor: colors.card }}>
@@ -127,7 +127,7 @@ const Settings = () => {
         ))}
 
         {/* App Version */}
-        <Text className="text-center text-xs font-poppins-regular text-gray mt-2 mb-6">
+        <Text className="text-center text-xs font-poppins-regular text-gray mt-1 mb-1">
           v1.0.0 • Build 42
         </Text>
       </ScrollView>

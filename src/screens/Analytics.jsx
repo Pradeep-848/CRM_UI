@@ -36,7 +36,7 @@ const Analytics = () => {
         <View className="px-5 pt-5 pb-2">
           <Text
             className="text-xl font-poppinsSemiBold"
-            style={{ color: colors.primary }}
+            style={{ color: colors.text }}
           >
             Analytics
           </Text>
@@ -133,7 +133,7 @@ const Analytics = () => {
                     style={{ backgroundColor: item.color }}
                   />
                   <Text
-                    className="text-xs font-poppinsRegular"
+                    className="text-sm font-poppinsRegular"
                     style={{ color: colors.text }}
                   >
                     {item.text} ({item.value}%)

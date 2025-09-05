@@ -10,9 +10,11 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import { useTheme } from "../context/ThemeContext";
+import { Dimensions } from "react-native";
 
 const Orders = () => {
   const { colors } = useTheme();
+  const height = Dimensions.get("window").height;
 
   // Sample orders data
   const orders = [
@@ -22,7 +24,7 @@ const Orders = () => {
       status: "Delivered",
       statusColor: colors.success,
       items: 3,
-      total: "$142.50",
+      total: "142.50",
       customer: "John Smith",
     },
     {
@@ -31,7 +33,7 @@ const Orders = () => {
       status: "Shipped",
       statusColor: colors.blue,
       items: 5,
-      total: "$245.75",
+      total: "245.75",
       customer: "Sarah Johnson",
     },
     {
@@ -40,7 +42,7 @@ const Orders = () => {
       status: "Processing",
       statusColor: colors.warning,
       items: 2,
-      total: "$89.99",
+      total: "89.99",
       customer: "Michael Brown",
     },
     {
@@ -49,7 +51,7 @@ const Orders = () => {
       status: "Cancelled",
       statusColor: colors.error,
       items: 1,
-      total: "$45.00",
+      total: "45.00",
       customer: "Emily Davis",
     },
   ];
@@ -126,7 +128,7 @@ const Orders = () => {
           <TouchableOpacity
             key={tab}
             onPress={() => setActiveTab(tab)}
-            className={`px-5 py-3 rounded-full mr-2 border ${
+            className={`px-3 py-1 rounded-full mr-2 border ${
               activeTab === tab ? "border-0" : "border"
             }`}
             style={{
@@ -150,10 +152,9 @@ const Orders = () => {
       <FlatList
         data={filteredOrders}
         keyExtractor={(item) => item.id}
-        contentContainerClassName="px-4 pb-6"
         renderItem={({ item }) => (
           <TouchableOpacity
-            className="rounded-xl p-4 mb-4 shadow"
+            className="rounded-xl p-2 mb-3 ml-2.5 w-[95%] shadow"
             style={{ backgroundColor: colors.card }}
             onPress={() => console.log("View order", item.id)}
           >
@@ -165,6 +166,15 @@ const Orders = () => {
               >
                 {item.id}
               </Text>
+
+              {/* Date */}
+              <Text
+                className="text-[10px] font-poppinsRegular"
+                style={{ color: colors.success }}
+              >
+                {item.date}
+              </Text>
+
               <View
                 className="px-3 py-1 rounded-full"
                 style={{ backgroundColor: item.statusColor }}
@@ -174,14 +184,6 @@ const Orders = () => {
                 </Text>
               </View>
             </View>
-
-            {/* Date */}
-            <Text
-              className="text-xs font-poppinsRegular mb-3"
-              style={{ color: colors.gray }}
-            >
-              {item.date}
-            </Text>
 
             {/* Details */}
             <View className="flex-row justify-between mb-4">
@@ -204,7 +206,7 @@ const Orders = () => {
                 </Text>
               </View>
               <View className="flex-row items-center">
-                <Icon name="dollar-sign" size={14} color={colors.gray} />
+                <Text className="text-sm" style={{ color: colors.gray }}>₹</Text>
                 <Text
                   className="ml-1 text-xs font-poppinsRegular"
                   style={{ color: colors.text }}
@@ -225,7 +227,7 @@ const Orders = () => {
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
-                className="px-4 py-2 rounded-lg"
+                className="px-3 py-2 rounded-lg"
                 style={{ backgroundColor: colors.primary }}
               >
                 <Text className="text-sm font-poppinsMedium text-white">
